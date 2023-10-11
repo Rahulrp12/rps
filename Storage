@@ -1,0 +1,8 @@
+localStorage.setItem("name", "bob")
+localStorage.removeItem("name")
+
+sessionStorage.setItem("name","Johan")
+sessionStorage.removeItem("name","Bob")
+document.cokie='name=kyle; expire='+new Date(9999,0,1).toUTCString()
+document.cookie='lastName=Smith,;expire='+new Date(9999,0,1).toUTCString()
+console.log(document.cookie)
