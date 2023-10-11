@@ -1,0 +1,25 @@
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: 'your_database_host',
+  user: 'your_database_user',
+  password: 'your_database_password',
+  database: 'your_database_name'
+});
+
+connection.connect();
+
+const newUser = {
+  username: 'john_doe',
+  email: 'john@example.com',
+  password_hash: 'hashed_password'
+};
+
+const insertQuery = 'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)';
+
+connection.query(insertQuery, [newUser.username, newUser.email, newUser.password_hash], (error, results, fields) => {
+  if (error) throw error;
+  console.log('User added to the database');
+});
+
+connection.end();
